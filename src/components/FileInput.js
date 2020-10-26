@@ -202,6 +202,7 @@ class FileInput extends Component {
       label,
       cropTool,
       scaleOptions,
+      localization,
     } = this.props;
     const isDragging = selectIsDragging(this.state);
 
@@ -239,6 +240,7 @@ class FileInput extends Component {
               onDragLeave={this.onDragLeave}
               onDrop={this.onDrop}
               openFileDialog={this.openFileDialog}
+              localization={localization}
             />
           ))
           || null
@@ -252,6 +254,7 @@ class FileInput extends Component {
               image={image}
               scaleOptions={scaleOptions}
               onEditionFinished={this.handleEditedFile}
+              localization={localization}
 
             />
           ))
@@ -278,6 +281,7 @@ FileInput.defaultProps = {
   onChangeCallback: null,
   onDragEnterCallback: null,
   onDragLeaveCallback: null,
+  localization: {},
 };
 
 FileInput.propTypes = {
@@ -301,6 +305,7 @@ FileInput.propTypes = {
   onChangeCallback: PropTypes.func,
   onDragEnterCallback: PropTypes.func,
   onDragLeaveCallback: PropTypes.func,
+  localization: PropTypes.array,
 };
 
 export default FileInput;

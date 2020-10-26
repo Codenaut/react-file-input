@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 import '../styles/DropArea.scss';
 
-const Droparea = ({ className, dragging, onDragEnter, onDragLeave, onDrop, openFileDialog }) => {
+const Droparea = ({ className, dragging, onDragEnter, onDragLeave, onDrop, openFileDialog, localization }) => {
   const baseClassName = (className && `brainhub-drop-area ${className}`) || 'brainhub-drop-area';
   const classNames = dragging
     ? `${baseClassName} brainhub-drop-area--dragging`
     : baseClassName;
-
+  const loc = localization || {}
   return (
     <div
       className={classNames}
@@ -17,11 +17,11 @@ const Droparea = ({ className, dragging, onDragEnter, onDragLeave, onDrop, openF
       onDrop={onDrop}
     >
       {dragging
-        ? (<div className="brainhub-drop-area__info">Drop here to select file.</div>)
+        ? (<div className="brainhub-drop-area__info">{loc["dropHereToSelectFile"] || "Drop here to select file."}</div>)
         : (
           <div>
             <div className="brainhub-drop-area__button" role="button" tabIndex={-1} onClick={openFileDialog}>
-              + Add File
+                {loc["addFile"] || "+ Add File"}
             </div>
           </div>
         )
@@ -42,6 +42,7 @@ Droparea.propTypes = {
   onDragLeave: PropTypes.func.isRequired,
   onDrop: PropTypes.func.isRequired,
   openFileDialog: PropTypes.func.isRequired,
+  localization: PropTypes.array,
 };
 
 export default Droparea;

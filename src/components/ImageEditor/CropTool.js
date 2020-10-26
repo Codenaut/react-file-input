@@ -221,6 +221,7 @@ class CropTool extends Component {
 
   render() {
     const { image } = this.props;
+    const loc = this.props.localization || {}
 
     return (
       <div>
@@ -251,14 +252,14 @@ class CropTool extends Component {
             className="brainhub-crop-tool__button brainhub-crop-tool__button--cancel"
             onClick={this.cancelEdition}
           >
-            Cancel
+                  { loc["cancel"] ||  "Cancel" }
           </button>
           <button
             type="button"
             className="brainhub-crop-tool__button brainhub-crop-tool__button--save"
             onClick={this.saveEdition}
           >
-            Save image
+                  { loc["saveImage"] ||  "Save image" }
           </button>
         </div>
       </div>
@@ -272,6 +273,7 @@ CropTool.defaultProps = {
 
 CropTool.propTypes = {
   image: PropTypes.string.isRequired,
+  localization: PropTypes.array,
   aspectRatio: PropTypes.number,
   onCancelEdition: PropTypes.func.isRequired,
   onSaveEdition: PropTypes.func.isRequired,

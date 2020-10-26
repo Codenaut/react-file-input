@@ -56,6 +56,7 @@ class ImageRotator extends PureComponent {
   render() {
     const { image } = this.props;
     const { angle } = this.state;
+    const loc = this.props.localization || {}
 
     return (
       <div>
@@ -84,7 +85,7 @@ class ImageRotator extends PureComponent {
             className="brainhub-image-rotator__button brainhub-image-rotator__button--save"
             onClick={this.save}
           >
-            Save image
+                  {loc["saveImage"] || "Save image"}
           </button>
           <button
             className="brainhub-image-rotator__button brainhub-image-rotator__button--arrow"
@@ -101,6 +102,7 @@ class ImageRotator extends PureComponent {
 ImageRotator.propTypes = {
   image: PropTypes.string.isRequired,
   onSave: PropTypes.func.isRequired,
+  localization: PropTypes.array
 };
 
 export default ImageRotator;
