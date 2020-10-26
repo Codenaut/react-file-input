@@ -247,12 +247,14 @@ class CropTool extends Component {
         </div>
         <div className="brainhub-crop-tool__controls">
           <button
+            type="button"
             className="brainhub-crop-tool__button brainhub-crop-tool__button--cancel"
             onClick={this.cancelEdition}
           >
             Cancel
           </button>
           <button
+            type="button"
             className="brainhub-crop-tool__button brainhub-crop-tool__button--save"
             onClick={this.saveEdition}
           >

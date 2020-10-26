@@ -73,12 +73,14 @@ class ImageRotator extends PureComponent {
         </div>
         <div className="brainhub-image-rotator__controls">
           <button
+            type="button"
             className="brainhub-image-rotator__button brainhub-image-rotator__button--arrow"
             onClick={this.rotateCounterClockwise}
           >
             <Icon icon={faUndo.icon}/>
           </button>
           <button
+            type="button"
             className="brainhub-image-rotator__button brainhub-image-rotator__button--save"
             onClick={this.save}
           >
